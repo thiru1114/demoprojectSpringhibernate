@@ -1,5 +1,7 @@
 package com.ltts.project.Dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
@@ -48,10 +50,20 @@ public class MemberDao {
 	 */
 	
 	public Member getMemberByEmai(String email) {
-		Member m=new Member();
+		//Member m=new Member();
 		
-		
+		Member m = (Member)sf.openSession().get(Member.class,email);
 		return m;
 	}
 	
+	public List<Member> getAllMembers(){
+		 Session session=sf.openSession();
+	        session.beginTransaction();
+	        
+	        List<Member> li=sf.openSession().createCriteria(Member.class).list();
+	        //List<ProductsModel> product=sessionFactory.openSession().createCriteria(ProductsModel.class).list();
+	        
+	        session.getTransaction().commit();
+	        return li;
+	}
 }

@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome to my Project</h1><br><br>
-<a href="login">Login</a> | 
-<a href="registration">Registration</a>
+<h1>View All Players</h1>
+
+${list }
 </body>
 </html>
